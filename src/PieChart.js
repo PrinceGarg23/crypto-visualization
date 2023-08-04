@@ -1,15 +1,15 @@
 import React from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
-import cryptoData from "./cryptoData";
+import fetchCryptoData from "./fetchCryptoData";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#8884D8", "#FF69B4"];
 
-const PieChartComponent = () => {
+const PieChartComponent = ({data}) => {
   // Calculate the total sum of prices for calculating percentage distribution
-  const totalSum = cryptoData.reduce((sum, dataPoint) => sum + dataPoint.price, 0);
+  const totalSum = data.reduce((sum, dataPoint) => sum + dataPoint.price, 0);
 
   // Create data for the pie chart with percentage distribution
-  const pieData = cryptoData.map((dataPoint) => ({
+  const pieData = data.map((dataPoint) => ({
     name: dataPoint.date,
     value: (dataPoint.price / totalSum) * 100,
   }));

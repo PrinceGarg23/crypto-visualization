@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from "recharts";
-import cryptoData from "./cryptoData";
+import fetchCryptoData from "./fetchCryptoData"; 
 
-const LineChartComponent = () => {
+const LineChartComponent = ({data}) => {
   const [showPercentageChange, setShowPercentageChange] = useState(false);
 
   const toggleData = () => {
@@ -10,11 +10,11 @@ const LineChartComponent = () => {
   };
 
   const dataToShow = showPercentageChange
-    ? cryptoData.map((dataPoint) => ({
+    ? data.map((dataPoint) => ({
         ...dataPoint,
-        price: ((dataPoint.price - cryptoData[0].price) / cryptoData[0].price) * 100,
+        price: ((dataPoint.price - data[0].price) / data[0].price) * 100,
       }))
-    : cryptoData;
+    : data;
 
   return (
     <div className="mb-4">

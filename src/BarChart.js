@@ -1,12 +1,12 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import cryptoData from "./cryptoData";
+import fetchCryptoData from "./fetchCryptoData";
 
-const BarChartComponent = () => {
+const BarChartComponent = ({data}) => {
   return (
     <div className="mb-4">
       <h2>Bar Chart</h2>
-      <BarChart width={600} height={300} data={cryptoData}>
+      <BarChart width={600} height={300} data={data}>
         <XAxis dataKey="date" />
         <YAxis dataKey="price" />
         <CartesianGrid strokeDasharray="3 3" />

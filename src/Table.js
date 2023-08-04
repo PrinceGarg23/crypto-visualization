@@ -1,8 +1,8 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import cryptoData from "./cryptoData";
+import fetchCryptoData from "./fetchCryptoData";
 
-const CryptoTable = () => {
+const CryptoTable = ({data}) => {
   return (
     <div>
       <h2>Table</h2>
@@ -14,7 +14,7 @@ const CryptoTable = () => {
           </tr>
         </thead>
         <tbody>
-          {cryptoData.map((dataPoint, index) => (
+          {data.map((dataPoint, index) => (
             <tr key={index}>
               <td>{dataPoint.date}</td>
               <td>{dataPoint.price}</td>
