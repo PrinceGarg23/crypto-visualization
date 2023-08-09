@@ -3,7 +3,7 @@ import axios from "axios";
 const fetchCryptoData = async () => {
   try {
     const response = await axios.get(
-      "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1"
+      "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=365"
     );
 
     const data = response.data.prices.map((priceData) => ({
